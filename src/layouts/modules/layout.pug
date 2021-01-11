@@ -1,0 +1,41 @@
+include functions
+include atoms
+include molecules
+include organisms
+include templates
+
+
+
+doctype html
+
+
+
+head
+
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+
+    link(href='themes/engine/css/main.css' rel='stylesheet')
+    title Profootball
+
+
+
+body
+
+    header
+        +s-header
+
+    main
+        block main
+
+    footer
+        +s-footer
+
+    +modal("callback")
+    +modal("video","lg")
+    +modal("politic","lg")
+    +modal("agreement","lg")
+
+
+
+script(src='themes/engine/js/main.js')

@@ -1,0 +1,28 @@
+-
+
+    // Check if one of substrings exists in string
+    function substr(string, substrings) {
+
+        if ( Array.isArray(substrings) ) {
+            return !!substrings.find(function (substring) { return string.indexOf(substring) !== -1 })
+        } else {
+            return string.indexOf(substrings) !== -1
+        }
+
+    }
+
+    // Loop
+    function loop(count) {
+        for (var i=0; i<count; i++) {
+
+        }
+    }
+
+
+mixin loop(count)
+
+    - var i = 1;
+
+    while i < count
+        block
+        - i++

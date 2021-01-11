@@ -1,0 +1,155 @@
+
+
+
+// Button
+mixin btn(...mods)
+    -
+        var
+            url = false
+            classes = "btn"
+            active = false
+            toggable = false
+            disabled = false
+
+    each mod in mods
+        if substr(mod, "/")
+            - url = mod
+        else if substr(mod, "disabled")
+            - disabled = true
+        else
+            - classes += " btn-" + mod
+
+
+    #{url ? "a href="+url : "button type=button "}(class=classes)&attributes(attributes)
+        if block
+            block
+
+
+
+// Link
+mixin a(...mods)
+    -
+        var
+            base = "."
+            href = "/index"
+            classes = ""
+            ext = ".html"
+
+    each mod in mods
+        if substr(mod, "/")
+            - href = base+mod
+        if substr(mod, ["#",":"])
+            - href = mod
+            - ext = ""
+
+    a(href=href+ext)&attributes(attributes)
+        block
+
+
+
+// Input
+mixin input(...mods)
+    -
+        var
+            classes = "form-control"
+            placeholder = "Подсказка"
+            inputmask = false
+            disabled = false
+
+    each mod in mods
+        if substr(mod, ":")
+            - placeholder = mod
+        else if substr(mod, "disabled")
+            - disabled = true
+        else if substr(mod, "phone")
+            - inputmask = "'mask': '+7 (999) 999-99-99'"
+        else
+            - classes += mod
+
+    input(type="text" class=classes placeholder=placeholder.slice(1) data-inputmask=inputmask)&attributes(attributes)
+
+
+
+// Textarea
+mixin textarea(...mods)
+    -
+        var
+            classes = "form-control"
+            placeholder = "Текст сообщения"
+            disabled = false
+
+    each mod in mods
+        if substr(mod, ":")
+            - placeholder = mod
+        else if substr(mod, "disabled")
+            - disabled = true
+        else if substr(mod, "phone")
+            - inputmask = "'mask': '+7 (999) 999-99-99'"
+
+    textarea(class=classes placeholder=placeholder.slice(1))&attributes(attributes)
+
+
+
+// Checkbox & Radio
+mixin check(...mods)
+    -
+        var
+            classes = "form-check"
+            type = "checkbox"
+            switcher = false
+            disabled = false
+            checked = false
+            id = "checkbox"
+
+    each mod in mods
+        if substr(mod, "radio")
+            - type = mod
+        if substr(mod, "switch")
+            - switcher = true
+        else if substr(mod, "#")
+            - id = mod
+        else if substr(mod, ":")
+            - name = mod
+        else if substr(mod, "checked")
+            - checked = true
+        else if substr(mod, "disabled")
+            - disabled = true
+
+    .form-check(class=switcher?"form-switch":false)&attributes(attributes)
+        input.form-check-input(type=type id=id.slice(1) disabled=disabled checked=checked)
+        label.form-check-label(for=id.slice(1))
+            block
+
+
+
+// Select
+mixin select(...mods)
+    -
+        var
+            classes = "form-select"
+            disabled = false
+
+    each mod in mods
+        if substr(mod, "disabled")
+            - disabled = true
+        else
+            - classes += mod
+
+    select(class=classes disabled=disabled)&attributes(attributes)
+        if block
+            block
+        else
+            option Опция 1
+            option Опция 2
+            option Опция 3
+
+
+// Rating
+mixin rating(score)
+    - var i = score
+
+    .rating
+        while i > 0
+            input(readonly type="radio" name="rating" id="rating-"+i)
+            label(for="rating-"+i)
+            - i--

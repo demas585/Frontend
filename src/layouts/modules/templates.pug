@@ -1,0 +1,467 @@
+mixin s-header
+    #s-header.fixed-top
+        nav#mobile-menu
+            ul
+                li: +a("./index.html#s-focus").text-decoration-none Развитие футболиста
+                li
+                    +a("./index.html#s-growth").text-decoration-none Личностный рост
+                    ul
+                        li: +a("/trainings").text-decoration-none Индивидуальные тренировки
+                        li: +a("/internships").text-decoration-none Международные стажировки
+                        li: +a("/therapist").text-decoration-none Персональный физиотерапевт
+                        li: +a("/medical").text-decoration-none Мед центр и страхование здоровья
+                        li: +a("/meetings").text-decoration-none Предсезонные сборы
+                        li: +a("/psychologist").text-decoration-none Спортивный психолог
+                        li: +a("/analytics").text-decoration-none Регулярные аналитические отчеты
+                li: +a("./index.html#s-clients").text-decoration-none Наши клиенты
+                li: +a("./index.html#s-news").text-decoration-none Новости
+
+        .bg-primary-dark.text-light.small.border-bottom.border-light.border-1
+            .container.border-end.border-1.border-light
+                .row.align-items-center
+                    .col-auto.p-2.pe-sm-3
+                        +a("/index").d-block.py-1: +img(".svg","/logo/profootball").site-logo
+
+                    .col.d-flex.align-self-stretch.justify-content-center.border-start.border-end.border-light.border-1.py-2
+                        #navbar.row.align-items-center.justify-content-around.w-100.mx-n2
+                            .col-auto.d-none.d-xl-block.px-2
+                                +a("#s-focus").nav-link.text-white.text-decoration-none.active-border-bottom Развитие футболиста
+                            .col-auto.d-none.d-xl-block.px-2
+                                +a("#s-growth").nav-link.text-white.text-decoration-none.active-border-bottom Личностный рост
+                            .col-auto.d-none.d-xl-block.px-2
+                                +a("#s-clients").nav-link.text-white.text-decoration-none.active-border-bottom Наши клиенты
+                            .col-auto.d-none.d-xl-block.px-2
+                                +a("#s-news").nav-link.text-white.text-decoration-none.active-border-bottom Новости
+                            .col-auto.px-2
+                                +btn("secondary-light","sm")(data-bs-toggle="modal" data-bs-target="#modal-callback").rounded-pill.px-sm-4 Связаться #[span.d-none.d-sm-inline с нами]
+
+                    .col-auto.py-2.dropdown-hover-wrapper.position-relative
+                        #dropdown-languages.p-2.bg-primary-dark.fw-bold RU
+                        .dropdown-hover-menu.position-absolute.fw-bold.start-0.end-0.closer
+                            +a("/ru").btn.d-block.btn-sm.btn-primary-dark.rounded-0.language.active RU
+                            +a("/en").btn.d-block.btn-sm.btn-primary-dark.rounded-0.language EN
+                            +a("/fr").btn.d-block.btn-sm.btn-primary-dark.rounded-0.language FR
+                            +a("/es").btn.d-block.btn-sm.btn-primary-dark.rounded-0.language ES
+
+                    .col-auto.d-block.d-xl-none.me-auto.px-2
+                        +a("#mobile-menu").d-block.text-white.text-decoration-none.h2.lh-1.mb-0: +fi("bars")
+
+
+
+mixin s-header-inner(image,title,subtitle,menu)
+    #s-header-inner.pt-4.pb-3.mb-5.position-relative.border-bottom.border-1
+        .img-bg
+            +img(image).img-bg
+        .container.text-light.pt-2
+            +section-title(title,subtitle,alt).mb-4
+            if menu
+                .row.mx-n3
+                    .col-md-6.col-lg-4.col-xl-3.mb-4.px-3(data-aos="fade-down")
+                        +a("/trainings").text-uppercase.text-decoration-none Индивидуальные тренировки
+                    .col-md-6.col-lg-4.col-xl-3.mb-4.px-3(data-aos="fade-down")
+                        +a("/internships").text-uppercase.text-decoration-none Международные стажировки
+                    .col-md-6.col-lg-4.col-xl-3.mb-4.px-3(data-aos="fade-down")
+                        +a("/therapist").text-uppercase.text-decoration-none Персональный физиотерапевт
+                    .col-md-6.col-lg-4.col-xl-3.mb-4.px-3(data-aos="fade-down")
+                        +a("/medical").text-uppercase.text-decoration-none Мед центр и страхование здоровья
+                    .col-md-6.col-lg-4.col-xl-3.mb-4.px-3(data-aos="fade-down")
+                        +a("/meetings").text-uppercase.text-decoration-none Предсезонные сборы
+                    .col-md-6.col-lg-4.col-xl-3.mb-4.px-3(data-aos="fade-down")
+                        +a("/psychologist").text-uppercase.text-decoration-none Спортивный психолог
+                    .col-md-6.col-lg-4.col-xl-3.mb-4.px-3(data-aos="fade-down")
+                        +a("/analytics").text-uppercase.text-decoration-none Регулярные аналитические отчеты
+
+
+mixin s-banner
+    #s-banner.position-relative
+        .container.position-absolute.start-0.end-0.bottom-0.p-4
+            +img("decor/scroll",".svg")(width=20).d-none.d-sm-block.animate__shakeY
+        picture
+            source(srcset="./images/banners/header-banner-sm.jpg" media="(max-width:767px)")
+            source(srcset="./images/banners/header-banner-lg.jpg" media="(max-width:991px)")
+            source(srcset="./images/banners/header-banner.jpg")
+            img(src="./images/banners/header-banner.jpg")
+        .container.text-center.text-light.py-3.py-lg-5.position-absolute.top-0.start-0.end-0
+            h1.h2.fw-bold.text-secondary-light(data-aos="fade-up") Профессиональное футбольное агентство
+            p(data-aos="fade-up" data-aos-delay="300") Прозрачные контрактные обязательства и всесторонняя поддержка в развитии клиентов
+
+
+
+mixin s-focus
+    #s-focus.section-focus.py-5.position-relative
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.bottom-0.ms-n8.mb-7.farther
+        .container
+            +section-title("Фокус на развитие","футболиста").mb-5
+
+            .swiper-container.text-light
+                +carousel
+                    .swiper-slide.focus-slide
+                        +focus("/trainings", "Индивидуальные тренировки", "Индивидуальные тренировки")
+                    .swiper-slide.focus-slide
+                        +focus("/internships", "Международные стажировки", "Международные стажировки")
+                    .swiper-slide.focus-slide
+                        +focus("/therapist", "Персональный физиотерапевт", "Персональный физиотерапевт")
+                    .swiper-slide.focus-slide
+                        +focus("/analytics", "Регулярные<br>аналитические отчеты", "Регулярные аналитические отчеты")
+                    .swiper-slide.focus-slide
+                        +focus("/medical", "Мед центр и страхование здоровья", "Услуги мед центра и страхование здоровья")
+                    .swiper-slide.focus-slide
+                        +focus("/psychologist", "Спортивный психолог", "Работа со спортивным психологом")
+                    .swiper-slide.focus-slide
+                        +focus("/meetings", "Предсезонные<br>сборы", "Предсезонные сборы")
+
+                +nav
+
+
+mixin s-growth
+    #s-growth.py-5.position-relative
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.top-0.mt-5.farther.farther
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.bottom-0.mb-5.farther.farther
+        .container
+            +section-title("Личностный","рост").mb-5
+
+            .row.counter-reset.row-cols-md-1.row-cols-lg-2.mx-n6
+                .col.counter-increment.mb-5.px-6(data-aos="fade-up")
+                    .position-relative.pe-4
+                        .d-none.d-sm-block.counter.position-absolute.top-0.end-0.fw-black.fst-italic.display-1.text-stroke.stroke-secondary-light.farther.lh-1.me-lg-n2.mt-n2
+                        .h3.fw-bold.text-secondary-light.text-uppercase.mb-3 Обучение английскому языку
+                        p Мы используем индивидуальный подход к каждому спортсмену в изучении языка, что позволяет обучение сделать комфортным, доступным и увлекательным процессом.
+                        p Нам важно при этом сохранить комфорт, мотивацию и отсутствие стресса.
+                .col.counter-increment.mb-5.px-6(data-aos="fade-up")
+                    .position-relative.pe-4
+                        .d-none.d-sm-block.counter.position-absolute.top-0.end-0.fw-black.fst-italic.display-1.text-stroke.stroke-secondary-light.farther.lh-1.me-lg-n2.mt-n2
+                        .h3.fw-bold.text-secondary-light.text-uppercase.mb-3 Подготовка к ЕГЭ
+                        p Мы разработали технологию подготовки спортсменов к поступлению на бюджет.
+                        p Она позволяет распределять нагрузку таким образом, чтобы футболист был постоянно вовлечён в обучение и это не мешало тренировочному процессу.
+                .col.counter-increment.mb-5.px-6(data-aos="fade-up")
+                    .position-relative.pe-4
+                        .d-none.d-sm-block.counter.position-absolute.top-0.end-0.fw-black.fst-italic.display-1.text-stroke.stroke-secondary-light.farther.lh-1.me-lg-n2.mt-n2
+                        .h3.fw-bold.text-secondary-light.text-uppercase.mb-3 Помощь в поступление в ВУЗ
+                        p Мы сотрудничаем с высшими и средне-специальными учебными заведениями.
+                        p Наше агентство готово оказать гарантированную помощь при поступлении в Российские ВУЗы и колледжи.
+                .col.counter-increment.mb-5.px-6(data-aos="fade-up")
+                    .position-relative.pe-4
+                        .d-none.d-sm-block.counter.position-absolute.top-0.end-0.fw-black.fst-italic.display-1.text-stroke.stroke-secondary-light.farther.lh-1.me-lg-n2.mt-n2
+                        .h3.fw-bold.text-secondary-light.text-uppercase.mb-3 Ведение соц сетей
+                        p Мы предоставляем маркетинговые услуги продвижения в социальных сетях для наших спортсменов.
+                        p Сервис использует несколько крупных источников для рекламы. Мы уверены в возможности реализации вашего потенциала.
+                .col.counter-increment.mb-5.px-6(data-aos="fade-up")
+                    .position-relative.pe-4
+                        .d-none.d-sm-block.counter.position-absolute.top-0.end-0.fw-black.fst-italic.display-1.text-stroke.stroke-secondary-light.farther.lh-1.me-lg-n2.mt-n2
+                        .h3.fw-bold.text-secondary-light.text-uppercase.mb-3 Работа со спонсорами
+                        p Спонсорская поддержка – наиважнейшая составляющая развития любого вида спорта.
+                        p Мы создаем варианты предложений, которые дадут потенциальному спонсору тот или иной уровень, и какую он извлечёт для себя пользу.
+                .col.counter-increment.mb-5.px-6(data-aos="fade-up")
+                    .g-0.position-relative.p-4.text-light
+                        +img("growth/bg").img-fluid.img-bg.rounded
+                        +img("growth/man",".png")(width=250).d-none.d-sm-block.position-absolute.bottom-0.end-0.me-sm-n4.me-lg-n7.me-xl-n4
+                        .row.mb-0.mb-md-5.mb-lg-0
+                            .col-sm-7.col-lg-9.col-xl-8.lh-sm
+                                p Наша задача: привлечь и отобрать талантливых игроков, которые с помощью усердной работы смогут сформировать компетенции профессионального спортсмена
+
+
+mixin s-clients
+
+    #s-clients
+        .py-3.position-relative.text-light
+            +img("clients/section-bg").img-bg
+            .container.position-relative.front.mb-6
+                +section-title("Наши","клиенты").mb-3
+
+                .nav
+                    a.nav-link.border-bottom.border-3.me-3.mb-2(data-bs-toggle="tab" href="#tab-content-1").active Все
+                    a.nav-link.border-bottom.border-3.me-3.mb-2(data-bs-toggle="tab" href="#tab-content-2") Голкиперы
+                    a.nav-link.border-bottom.border-3.me-3.mb-2(data-bs-toggle="tab" href="#tab-content-3") Защитники
+                    a.nav-link.border-bottom.border-3.me-3.mb-2(data-bs-toggle="tab" href="#tab-content-4") Полузащитники
+                    a.nav-link.border-bottom.border-3.me-3.mb-2(data-bs-toggle="tab" href="#tab-content-5") Нападающие
+
+        .container.position-relative.front
+            .tab-content
+                #tab-content-1.tab-pane.fade.swiper-container.active.show
+                    +carousel("loop")
+                        .swiper-slide.col-lg-6
+                            +client("17","Иван Миронов","Нападающий")
+                        .swiper-slide.col-lg-6
+                            +client("20","Максим Филатов","Нападающий")
+                        .swiper-slide.col-lg-6
+                            +client("11","Антон Черняк","Нападающий")
+                    +nav("middle")
+
+                #tab-content-2.tab-pane.fade.swiper-container
+                    +carousel("loop")
+                        .swiper-slide.col-lg-6
+                            +client("17","Иван Миронов","Голкипер")
+                        .swiper-slide.col-lg-6
+                            +client("20","Максим Филатов","Голкипер")
+                        .swiper-slide.col-lg-6
+                            +client("11","Антон Черняк","Голкипер")
+                    +nav("middle")
+
+                #tab-content-3.tab-pane.fade.swiper-container
+                    +carousel("loop")
+                        .swiper-slide.col-lg-6
+                            +client("17","Иван Миронов","Защитник")
+                        .swiper-slide.col-lg-6
+                            +client("20","Максим Филатов","Защитник")
+                        .swiper-slide.col-lg-6
+                            +client("11","Антон Черняк","Защитник")
+                    +nav("middle")
+
+                #tab-content-4.tab-pane.fade.swiper-container
+                    +carousel("loop")
+                        .swiper-slide.col-lg-6
+                            +client("17","Иван Миронов","Полузащитник")
+                        .swiper-slide.col-lg-6
+                            +client("20","Максим Филатов","Полузащитник")
+                        .swiper-slide.col-lg-6
+                            +client("11","Антон Черняк","Полузащитник")
+                    +nav("middle")
+
+                #tab-content-5.tab-pane.fade.swiper-container
+                    +carousel("loop")
+                        .swiper-slide.col-lg-6
+                            +client("17","Иван Миронов","Нападающий")
+                        .swiper-slide.col-lg-6
+                            +client("20","Максим Филатов","Нападающий")
+                        .swiper-slide.col-lg-6
+                            +client("11","Антон Черняк","Нападающий")
+                    +nav("middle")
+
+
+
+mixin s-news
+    #s-news.py-5.position-relative
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.top-0.farther.d-none.d-lg-block
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.top-0.farther
+        .container
+            +section-title("Последние","новости").mb-4
+            .mb-5
+                +a("/news").fw-semibold.text-uppercase.text-decoration-none Все новости
+
+        .swiper-container
+            +carousel("loop")
+                +loop(3)
+                    .swiper-slide.col-sm-auto
+                        +new("Невероятный сейв нашего подопечного","video")
+                    .swiper-slide.col-sm-auto
+                        +new("Тренеровочные сборы в голландии")
+                    .swiper-slide.col-sm-auto
+                        +new("“Казахский метеор” занимает 3 место в списке бомбардиров")
+                    .swiper-slide.col-sm-auto
+                        +new("Сегодня прекрасный день для новой звезды футбола из Турции")
+
+            .container
+                +nav
+
+
+
+
+mixin s-partners
+    #s-partners.py-5.position-relative
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.bottom-0.mb-n8.farther.d-none.d-lg-block
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.bottom-0.mb-n8.farther
+        .text-center
+            +section-title("Наши","партнёры").mb-5
+
+        .my-6.position-relative
+            hr.bg-secondary
+            +img("logo/profootball",".svg")(style="height:75px").position-absolute.top-50.start-50.translate-middle.border.border-5.border-light
+
+        .d-flex.justify-content-center.align-items-center
+            +img("logo/adidas",".svg").partner-logo.mx-2.mx-lg-4(data-aos="fade-up")
+            +img("logo/decathlon",".svg").partner-logo.mx-2.mx-lg-4(data-aos="fade-up")
+            +img("logo/gatorade",".svg").partner-logo.mx-2.mx-lg-4(data-aos="fade-up")
+
+
+
+mixin s-form(nodecor)
+    #s-form.py-5.position-relative
+        if !nodecor
+            +img("decor/decor",".svg").img-decor.position-absolute.start-0.top-0.mt-4.farther.d-none.d-lg-block
+            +img("decor/decor",".svg").img-decor.position-absolute.end-0.bottom-0.farther
+        .container
+            .position-relative.p-3.p-sm-4.text-light.overflow-hidden
+                +img("forms/bg").position-absolute.top-0.start-0.end-0.farther.w-100.rounded.h-100.h-lg-auto.fit-cover
+                .row
+                    .col-lg-6.d-flex.flex-column
+                        h2.h1.fw-extrabold.text-uppercase.fst-italic.mb-3
+                            span Свяжитесь
+                            span.d-block.d-xxl-inline.display-2.text-stroke.stroke-secondary-light.ms-xxl-n10.position-relative.farther с нами
+                        .fw-semibold Заполните форму обратной связи #[br.d-none.d-lg-inline] и мы расскажем, с чего начать
+                        .text-light.text-lg-dark.mt-4.mt-lg-auto.mb-4.mb-lg-0 Мы даём шанс талантливым игрокам попасть в профессиональный футбол и предоставляем им все необходимые ресурсы для развития их мастерства
+
+                    .col-lg
+                        form.bg-primary-light.text-light.py-4.px-4.px-xl-5.rounded.me-xl-4.text-center(data-aos="fade-up")
+                            .fw-semibold.mb-4 Наш менеджер свяжется с вами
+                            +input(":Ваше имя").mb-3
+                            +input("phone",":Номер телефона").mb-3
+                            +input(":E-mail").mb-3
+                            +textarea(":Ваше сообщение").mb-3
+                            +check("checked").small.mb-3.text-start Я принимаю условия соглашения об обработке персональных данных
+                            +btn("secondary-light").rounded-pill.px-4.px-sm-5 Отправить
+
+
+mixin s-coaches
+    #s-coaches.position-relative.py-5
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.top-0.farther.d-none.d-lg-block
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.top-0.farther
+        .container
+            +section-title("Тренеры нашего агентства").mb-5
+
+            .swiper-container
+                +carousel("loop")
+                    .swiper-slide.col-lg-6
+                        +specialist("coaches","Михаил Андреевич Зиновьев")
+                    .swiper-slide.col-lg-6
+                        +specialist("coaches","Василий Петрович Ищенко")
+                    .swiper-slide.col-lg-6
+                        +specialist("coaches","Михаил Андреевич Зиновьев")
+                    .swiper-slide.col-lg-6
+                        +specialist("coaches","Василий Петрович Ищенко")
+                +nav("middle")
+
+
+mixin s-tariffs
+    #s-tariffs
+        .container.py-5
+            +section-title("Пакеты спортивных страховок").mb-5
+            .row
+                .col-xxl-4.mb-4.mb-xxl-0
+                    +tariff("Соревнования и тренировки","150 000 рублей","От несчастных случаев","Весь мир","От 14 до 65 лет","705 рублей") На день
+                .col-xxl-4.mb-4.mb-xxl-0
+                    +tariff("Соревнования и тренировки","150 000 рублей","От несчастных случаев","Весь мир","От 14 до 65 лет","1 051 рублей") На месяц
+                .col-xxl-4.mb-4.mb-xxl-0
+                    +tariff("Соревнования и тренировки","150 000 рублей","От несчастных случаев","Весь мир","От 14 до 65 лет","1 800 рублей") На год
+
+
+mixin s-therapists
+    #s-therapists.position-relative.py-5
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.top-0.farther.d-none.d-lg-block
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.top-0.farther
+        .container.py-5
+            +section-title("Специалисты нашего агентства").mb-5
+            .swiper-container
+                +carousel("loop")
+                    .swiper-slide.col-lg-6
+                        +specialist("therapists","Вадим Юрьевич Смирнов")
+                    .swiper-slide.col-lg-6
+                        +specialist("therapists","Елена Николаевна Смирнова")
+                    .swiper-slide.col-lg-6
+                        +specialist("therapists","Вадим Юрьевич Смирнов")
+                    .swiper-slide.col-lg-6
+                        +specialist("therapists","Елена Николаевна Смирнова")
+                +nav("middle")
+
+
+mixin s-meeting-bases
+    #section-meetings.py-5.position-relative
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.top-0.farther.d-none.d-lg-block
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.top-0.farther
+        .container.py-5
+            +section-title("Базы для проведения сборов").mb-5
+            .swiper-container
+                +carousel("loop")
+                    .swiper-slide.col-lg-6
+                        +meeting-base("Xanthe Resort Hotel & Spa")
+                    .swiper-slide.col-lg-6
+                        +meeting-base("Комплекс «Aqualife»")
+                    .swiper-slide.col-lg-6
+                        +meeting-base("Xanthe Resort Hotel & Spa")
+                    .swiper-slide.col-lg-6
+                        +meeting-base("Комплекс «Aqualife»")
+                +nav("middle")
+
+
+mixin s-sport-bases
+    #s-sport-bases.position-relative.py-5
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.top-0.farther.d-none.d-lg-block
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.top-0.farther
+
+        .container
+            +section-title("Спортивные базы").mb-5
+            .swiper-container
+                +carousel("loop")
+                    .swiper-slide.col-lg-6
+                        +sport-base("FC Ajax Tallinn")
+                    .swiper-slide.col-lg-6
+                        +sport-base("FC Real Madrid Camp")
+                    .swiper-slide.col-lg-6
+                        +sport-base("FC Ajax Tallinn")
+                    .swiper-slide.col-lg-6
+                        +sport-base("FC Real Madrid Camp")
+                +nav("middle")
+
+
+mixin s-psychologists
+    #s-psychologists.position-relative.py-5
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.top-0.farther.d-none.d-lg-block
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.top-0.farther
+
+        .container
+            +section-title("Специалисты нашего агентства").mb-5
+
+            .swiper-container
+                +carousel("loop")
+                    .swiper-slide.col-lg-6
+                        +specialist("psychologist","Николай Евгеньевич Терехин")
+                    .swiper-slide.col-lg-6
+                        +specialist("psychologist","Светлана Анатольевна Смирнова")
+                    .swiper-slide.col-lg-6
+                        +specialist("psychologist","Николай Евгеньевич Терехин")
+                    .swiper-slide.col-lg-6
+                        +specialist("psychologist","Светлана Анатольевна Смирнова")
+                +nav("middle")
+
+
+mixin s-platforms
+    #s-platforms.position-relative.py-5
+        +img("decor/decor",".svg").img-decor.position-absolute.start-0.top-0.farther.d-none.d-lg-block
+        +img("decor/decor",".svg").img-decor.position-absolute.end-0.top-0.farther
+
+        .container
+            +section-title("Топ-платформы, которые мы используем").mb-5
+            .swiper-container
+                +carousel("loop")
+                    .swiper-slide.col-lg-6
+                        +platform("instat")
+                            p Платформа предлагает инструменты оценки индивидуальных и командных выступлений, а также подбора игроков.
+                    .swiper-slide.col-lg-6
+                        +platform("wyscout")
+                            p Является профессиональной футбольной платформой для аналитики в режиме реального времени.
+                            p Очень качественный инструмент для подбора видео, данных, статистики.
+                    .swiper-slide.col-lg-6
+                        +platform("sportscode")
+                            p Это настоящий настольный цифро визированный инструмент любого тренера аналитика, помощника главного тренера профессиональной команды.
+                    .swiper-slide.col-lg-6
+                        +platform("hudl")
+                            p Платформа предназначена для коммуникации внутри клуба.
+                            p Каждая профессиональная команда должна использовать такие инновационные инструменты взаимодействия.
+
+                +nav("middle")
+
+
+mixin s-footer
+    #s-footer.bg-primary-dark.py-5.text-light.small
+        .position-relative
+            hr.bg-secondary-light
+            .container
+                +img("logo/profootball",".svg")(style="height:75px;").position-absolute.top-0.translate-middle-y.border.border-5.border-primary-dark
+
+                .row.mt-6.text-center.text-sm-start
+                    .col-sm-4.col-md-3.mb-3.mb-sm-0
+                        .mb-2
+                            +a(data-bs-toggle="modal" data-bs-target="#modal-politic").text-decoration-none Политика конфиденциальности
+                        .mb-2
+                            +a(data-bs-toggle="modal" data-bs-target="#modal-agreement").text-decoration-none Пользовательское соглашение
+                    .col-sm.text-center.d-flex.flex-column.justify-content-between.mb-4.mb-sm-0
+                        p.mt-lg-n4.mb-4.mb-sm-0 Связаться с нами: #[+a("mailto:office@pro-football.tech") office@pro-football.tech]
+                        p © Pro Football 2020
+                    .col-sm-4.col-md-3.mt-sm-n6.text-sm-end
+                        .bg-primary-dark.p-2.mt-sm-n3.d-sm-inline-block.text-sm-start
+                            .fw-bold.fst-italic.text-uppercase.mb-3.w-auto Сменить язык
+                            .mb-2
+                                +a("/en") English
+                            .mb-2
+                                +a("/fr") Français
+                            .mb-2
+                                +a("/es") Español

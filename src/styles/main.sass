@@ -1,0 +1,348 @@
+// Fonts
+@import "modules/fonts"
+
+
+// Configuration
+@import "../../node_modules/bootstrap/scss/functions"
+
+// Custom bootstrap variables
+@import "modules/variables"
+
+@import "../../node_modules/bootstrap/scss/variables"
+@import "../../node_modules/bootstrap/scss/mixins"
+@import "../../node_modules/bootstrap/scss/utilities"
+
+// Custom bootstrap utilites
+@import "modules/utilites"
+
+// Layout & components
+@import "../../node_modules/bootstrap/scss/root"
+@import "../../node_modules/bootstrap/scss/reboot"
+@import "../../node_modules/bootstrap/scss/type"
+@import "../../node_modules/bootstrap/scss/images"
+@import "../../node_modules/bootstrap/scss/containers"
+@import "../../node_modules/bootstrap/scss/grid"
+@import "../../node_modules/bootstrap/scss/tables"
+@import "../../node_modules/bootstrap/scss/forms"
+@import "../../node_modules/bootstrap/scss/buttons"
+@import "../../node_modules/bootstrap/scss/transitions"
+@import "../../node_modules/bootstrap/scss/dropdown"
+@import "../../node_modules/bootstrap/scss/button-group"
+@import "../../node_modules/bootstrap/scss/nav"
+@import "../../node_modules/bootstrap/scss/navbar"
+@import "../../node_modules/bootstrap/scss/card"
+@import "../../node_modules/bootstrap/scss/accordion"
+@import "../../node_modules/bootstrap/scss/breadcrumb"
+@import "../../node_modules/bootstrap/scss/pagination"
+@import "../../node_modules/bootstrap/scss/badge"
+@import "../../node_modules/bootstrap/scss/alert"
+@import "../../node_modules/bootstrap/scss/progress"
+@import "../../node_modules/bootstrap/scss/list-group"
+@import "../../node_modules/bootstrap/scss/close"
+@import "../../node_modules/bootstrap/scss/toasts"
+@import "../../node_modules/bootstrap/scss/modal"
+@import "../../node_modules/bootstrap/scss/tooltip"
+@import "../../node_modules/bootstrap/scss/popover"
+@import "../../node_modules/bootstrap/scss/carousel"
+@import "../../node_modules/bootstrap/scss/spinners"
+
+
+// Helpers
+@import "../../node_modules/bootstrap/scss/helpers"
+
+
+// Utilities
+@import "../../node_modules/bootstrap/scss/utilities/api"
+
+
+// Libs
+@import "../../node_modules/swiper/swiper"
+.swiper-container
+  overflow: visible
+  .swiper-slide
+    transition: $transition-base
+
+
+.swiper-slide:not(.swiper-slide-visible)
+  opacity: .5
+
+.swiper-button-prev, .swiper-button-next
+  width: 56px
+  height: 56px
+  padding: 0 !important
+  display: flex
+  align-items: center
+  justify-content: center
+  +media-breakpoint-down(sm)
+    width: 48px
+    height: 48px
+    &.position-absolute
+      position: static !important
+      transform: none !important
+
+.swiper-button-disabled
+  opacity: .7
+  cursor: default !important
+  pointer-events: none
+
+@import "../../node_modules/mmenu-light/src/mmenu-light"
+
+nav#mobile-menu:not(.mm-spn)
+  display: none
+//.mm-spn--light:not(.mm-spn)
+  display: none
+
+@import "../../node_modules/aos/src/sass/aos"
+
+// Icons
+@import "../fonts/icons/style"
+
+// Components
+@import "components/cards"
+@import "components/rating"
+
++media-breakpoint-down(lg)
+  :root
+    font-size: 20px
+
+.text-stroke
+  -webkit-text-stroke-width: 1px
+  color: transparent
+
+.stroke-secondary
+  -webkit-text-stroke-color: $secondary
+.stroke-secondary-light
+  -webkit-text-stroke-color: $secondary-light
+
+.img-bg
+  position: absolute
+  z-index: -1
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+a, a:hover
+  color: currentColor
+
+
+.front
+  z-index: 100
+
+.closer
+  z-index: 1
+
+.farther
+  z-index: -1
+
+.back
+  z-index: -100
+
+p:last-child
+  margin-bottom: 0
+
+.bg-secondary-light-secondary-70
+  background: linear-gradient(to right, rgba($secondary-light,.7), rgba($secondary,.7))
+.bg-secondary-light-primary-light-70
+  background: linear-gradient(to right, rgba($secondary-light,.7), rgba($primary-light,.7))
+
+html, body
+  overflow-x: hidden
+
+
+.dropdown-hover-wrapper
+  &:hover
+    .dropdown-hover-menu
+      visibility: visible
+      opacity: 1
+    .dropdown-hover-toggle
+      transform: rotate(180deg)
+
+  .dropdown-hover-menu
+    visibility: hidden
+    opacity: 0
+    transition: $transition-base
+
+  .dropdown-hover-toggle
+    transition: $transition-base
+
+.dropdown-click-wrapper
+
+  .dropdown-click-menu
+    visibility: hidden
+    opacity: 0
+    transition: $transition-base
+    &.active
+      visibility: visible
+      opacity: 1
+
+  .dropdown-click-toggle
+    transition: $transition-base
+    &.active
+      transform: rotate(180deg)
+
+
+.event-none
+  pointer-events: none
+
+
+.counter-reset
+  counter-reset: i
+
+.counter-increment
+  counter-increment: i
+
+.counter:after
+  content: "0" counter(i)
+
+
+.site-logo
+  width: 70px
+  +media-breakpoint-down(xl)
+    width: 50px
+
+
+.nav-link
+  border-color: transparent !important
+  &.active
+    border-color: $secondary-light !important
+    -webkit-text-stroke: .5px $light
+
+
+.btn.btn-secondary-light
+  background: linear-gradient(to bottom, $secondary-light, $secondary)
+
+
+.active-border-bottom
+  position: relative
+  &:after
+    content: ''
+    position: absolute
+    left: 0
+    right: 0
+    bottom: -10px
+    border-bottom: 3px solid $secondary-light
+    display: none
+
+  &.active:after
+    display: block
+
+[data-bs-toggle="modal"]
+  cursor: pointer
+
+.min-h-50
+  min-height: 50%
+
+
+.language.active
+  display: none !important
+
+.section-title>span:first-child
+  margin-right: -98px
+  +media-breakpoint-down(xl)
+    margin-right: 0
+
+textarea.form-control
+  min-height: 100px
+
++media-breakpoint-down(xl)
+  header
+    .border-light
+      border-color: transparent !important
+    .col
+      padding: 0 !important
+
+
+.img-decor
+  width: 500px
+  +media-breakpoint-down(lg)
+    width: 400px
+  &.start-0
+    +media-breakpoint-down(md)
+      transform: translateX(-70%)
+  &.end-0
+    +media-breakpoint-down(md)
+      transform: translateX(70%)
+
+
+
++media-breakpoint-down(md)
+  .h-100-sm
+    height: 100%
+
+
++media-breakpoint-up(lg)
+  .text-lg-dark
+    color: $dark !important
+
++media-breakpoint-up(lg)
+  .h-lg-auto
+    height: auto !important
+
+.fit-cover
+  object-fit: cover
+
+
+
++media-breakpoint-down(sm)
+  .display-2
+    font-size: 1.7rem
+
+//+media-breakpoint-down(sm)
+  #s-form
+    form
+      color: $dark !important
+      background: $light !important
+      input,textarea
+        background: $light !important
+        border: 1px solid $primary !important
+        &::placeholder
+          color: $gray-700 !important
+
+
+#s-banner picture img
+  object-fit: cover
+  object-position: bottom center
+  width: 100%
+  min-height: 600px
+  +media-breakpoint-down(lg)
+    min-height: 500px
+    max-height: 650px
+  +media-breakpoint-down(md)
+    min-height: 400px
+    max-height: 500px
+  +media-breakpoint-down(sm)
+    min-height: 450px
+    max-height: 500px
+
+
+header
+  height: 100px
+  background: $primary-dark
+  +media-breakpoint-down(xl)
+    height: 80px
+
+
+
+
+@keyframes shakeY
+  0%,to
+    transform: translateZ(0)
+
+  10%,30%,50%,70%,90%
+    transform: translate3d(0,-10px,0)
+
+  20%,40%,60%,80%
+    transform: translate3d(0,10px,0)
+
+.animate__shakeY
+  animation: shakeY infinite 5s
+
+
+html
+  scroll-snap-type: y proximity
+  scroll-behavior: smooth
+  scroll-padding-top: 100px

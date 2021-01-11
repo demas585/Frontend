@@ -1,0 +1,70 @@
+//----------------------------------------------------------------------------------------------------//
+    Font icons
+    +fi(icon)
+//----------------------------------------------------------------------------------------------------//
+
+mixin fi(icon)
+    i.icon(class="icon-"+icon)&attributes(attributes)
+
+
+
+//----------------------------------------------------------------------------------------------------//
+    SVG icons
+    +si(icon)
+//----------------------------------------------------------------------------------------------------//
+
+mixin si(icon)
+    use(href="#icon-"+icon)&attributes(attributes)
+
+
+
+//----------------------------------------------------------------------------------------------------//
+    Images
+    +img(src, ext, ratio)
+//----------------------------------------------------------------------------------------------------//
+
+mixin img(...mods)
+
+    -
+        var
+            src = "images/"
+            ext = ".jpg"
+            ratio = false
+
+    each mod in mods
+        if substr(mod, ".")
+            - ext = mod
+
+        else if substr(mod, ":")
+            - ratio = mod
+
+        else
+            - src += mod
+
+
+    #{ ratio ? "div class='ratio ratio-"+ratio+"'" : "img src="+src+ext }&attributes(attributes)
+
+
+
+//----------------------------------------------------------------------------------------------------//
+    Swiper Carousel. Add ".swiper-container" and ".swiper-slide" manually.
+    +carousel(nav)
+//----------------------------------------------------------------------------------------------------//
+
+mixin carousel(...mods)
+
+    -
+        var
+            nav = true
+
+    each mod in mods
+        if substr(mod, "nav")
+            - nav = true
+
+    .swiper-wrapper&attributes(attributes)
+        block
+
+    if nav
+        .swiper-nav.d-flex.justify-content-end
+            +btn("primary").swiper-prev: +fi("angle-left").fs-3
+            +btn("primary").swiper-next: +fi("angle-right").fs-3

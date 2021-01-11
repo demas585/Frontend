@@ -1,0 +1,60 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-weight": (
+      property: font-weight,
+      class: fw,
+      values: (
+        lighter:    $font-weight-lighter,
+        thin:       $font-weight-thin,
+        extralight: $font-weight-extralight,
+        light:      $font-weight-light,
+        normal:     $font-weight-normal,
+        medium:     $font-weight-medium,
+        semibold:   $font-weight-semibold,
+        bold:       $font-weight-bold,
+        extrabold:  $font-weight-extrabold,
+        black:      $font-weight-black,
+        bolder:     $font-weight-bolder,
+      )
+    ),
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        min: min-content,
+        max: max-content,
+        auto: auto
+      )
+    ),
+    "text-cols": (
+      responsive: true,
+      property: column-count,
+      class: text-cols,
+      values: (
+        1:1,
+        2:2,
+        3:3,
+        4:4,
+        5:5,
+        6:6,
+        7:7,
+        8:8,
+        9:9,
+        10:10,
+        11:11,
+        12:12,
+      )
+    ),
+    "column-gap": (
+      responsive: true,
+      property: column-gap,
+      class: column-gap,
+      values: $spacers
+    ),
+  )
+);

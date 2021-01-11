@@ -1,0 +1,275 @@
+mixin section-title(title, subtitle, margin)
+    h2.h1.section-title.fw-extrabold.text-uppercase.fst-italic&attributes(attributes)
+        span.d-block.d-xl-inline= title
+        span.display-2.text-stroke.stroke-secondary-light.position-relative.farther= subtitle
+
+
+mixin client(age,title,type)
+    .card-client.d-flex.flex-column.position-relative.p-4.text-light.border-end.border-1(data-aos="fade-up")
+        +img("clients/card-bg").img-bg
+        .position-absolute.bottom-0.end-0.event-none.farther.overflow-hidden: +img("people/clients/"+title,".png").h-100
+        .position-relative.display-1.fw-black.fst-italic.mb-3= age
+            .position-absolute.display-1.text-stroke.stroke-secondary-light.farther.top-0.start-0.ms-2.mt-2= age
+        .fw-bold.text-uppercase.fst-italic.w-min.mb-3= title
+        .text-uppercase.mb-3= type
+
+        .dropdown-click-wrapper.mt-auto.me-auto
+            .h2.dropdown-click-toggle.d-inline-flex.text-secondary-light: +fi("angle-circle-down").m-auto
+            .dropdown-click-menu.position-absolute.top-100.start-0.bg-primary.p-4
+                if block
+                    block
+                else
+                    .mb-4
+                        .h6.fw-bold.text-uppercase Образование
+                        p Сочинский Государственный Университет<br>Специальность — тренер-преподаватель по футболу.
+                    .mb-4.tex-cols-sm-2
+                        .h6.fw-bold.text-uppercase Карьера
+                        p ФК «Псков -747» «Локомотив» Чита «Анжи» Махачкала «Мордовия» Саранск «Газовик» Оренбург
+                    .mb-4
+                        .h6.fw-bold.text-uppercase Достижения
+                        p Серебряный призер Первенства России второго дивизиона зоны  «Запад» сезона 2003 в составе ФК «Петротрест» (Санкт-Петербург)
+                        p Серебряный призер Первенства России второго дивизиона зоны  «Центр» сезона 2006 в составе ФК «Мордовия» (Саранск)
+                        p Победитель Первенства России второго дивизиона зоны  «Запад» сезона 2009 в составе «Динамо» (Санкт-Петербург)
+                        p Победитель Первенства России второго дивизиона зоны  «Урал-Поволжье» сезона 2010 в составе «Газовик» (Оренбург)
+                        p Серебряный призер Первенства России второго дивизиона зоны  «Запад» сезона 2012-2013 в составе ФК «Псков-747»
+
+
+mixin new(title,type)
+    if type === "video"
+        .card-new-video.position-relative.d-flex.flex-column.border-end.border-1(data-aos="fade-up")(data-bs-toggle="modal" data-bs-target="#modal-video")&attributes(attributes)
+            +img("news/" + title).img-bg
+            .d-flex.flex-column.p-3.text-light.h-100
+                .col-lg-5.col-xxl-4.m-auto
+                    +fi("play").d-block.display-2.text-secondary-light.mb-3
+                    .fw-bold.flex-grow-1= title
+
+    else
+        .card-new-post.position-relative.d-flex.flex-column.border-end.border-1(data-aos="fade-up")&attributes(attributes)
+            +img("news/"+title).img-bg
+            .d-flex.flex-column.p-3.bg-secondary-light-primary-light-70.text-light.mt-auto.min-h-50
+                .small.ms-auto.fw-bold 23.05.20
+                .fw-bold.flex-grow-1.my-3= title
+                +a("/new").fw-bold.small.ms-auto.text-decoration-none.border-bottom.border-2.border-secondary-light Подробности
+
+
+mixin specialist(dir,title)
+    .card-specialist.d-flex.flex-column.position-relative.p-4.text-light.border-end.border-1(data-aos="fade-up")
+        +img("coaches/card-bg").img-bg
+        .position-absolute.bottom-0.end-0.farther.overflow-hidden: +img("people/"+dir+"/"+title,".png").h-100
+        .h3.fw-bold.text-uppercase.fst-italic.w-min.mb-3= title
+
+        .mt-auto
+            .text-uppercase Рейтинг
+            .d-flex.flex-nowrap
+                +fi("star-full").me-2
+                +fi("star-full").me-2
+                +fi("star-full").me-2
+                +fi("star-full").me-2
+                +fi("star-half").me-2
+
+        .dropdown-click-wrapper.mt-auto.me-auto
+            .h2.dropdown-click-toggle.d-inline-flex.text-secondary-light: +fi("angle-circle-down").m-auto
+            .dropdown-click-menu.position-absolute.top-100.start-0.bg-primary.p-4
+                if block
+                    block
+                else
+                    if dir === "coaches"
+                        .mb-4
+                            .h6.fw-bold.text-uppercase Образование
+                            p Сочинский Государственный Университет<br>Специальность — тренер-преподаватель по футболу.
+                        .mb-4
+                            .h6.fw-bold.text-uppercase Карьера
+                            ul.list-unstyled.text-cols-2
+                                li ФК «Псков -747»
+                                li «Локомотив» Чита
+                                li «Анжи» Махачкала
+                                li «Мордовия» Саранск
+                                li «Газовик»  Оренбург
+                                li «Жемчужина-2» Сочи
+                                li «Петротрест» Санкт-Петербург
+                                li «Динамо» Санкт-Петербург
+                                li «Днепр» Смоленск
+                                li «Тосно» ЛО
+                        .mb-4
+                            .h6.fw-bold.text-uppercase Достижения
+                            p Серебряный призер Первенства России второго дивизиона зоны  «Запад» сезона 2003 в составе ФК «Петротрест» (Санкт-Петербург)
+                            p Серебряный призер Первенства России второго дивизиона зоны  «Центр» сезона 2006 в составе ФК «Мордовия» (Саранск)
+                            p Победитель Первенства России второго дивизиона зоны  «Запад» сезона 2009 в составе «Динамо» (Санкт-Петербург)
+                            p Победитель Первенства России второго дивизиона зоны  «Урал-Поволжье» сезона 2010 в составе «Газовик» (Оренбург)
+                            p Серебряный призер Первенства России второго дивизиона зоны  «Запад» сезона 2012-2013 в составе ФК «Псков-747»
+                    else if dir === "therapists"
+                        .mb-4
+                            .h6.fw-bold.text-uppercase Образование
+                            p В июле 2006 года закончила ГОУ ВПО Российский Государственный Медицинский Университет Минздрава России (педиатрический факультет)
+                            p Присвоена квалификация — Врач по специальности «педиатрия»
+                            p В ноябре 2004 года окончила курс специализации
+                            p по массажу на кафедре Спортивной медицины
+                            p и реабилитации больных и инвалидов РГМУ.
+                            p Присвоена квалификация — Массажист
+                            p В 2014 году Федеральным Государственным Учреждением «Учебно-научный медицинский центр»
+                        .mb-4
+                            .h6.fw-bold.text-uppercase Карьера
+                            p С октября 2018-го года - специалист по реабилитации молодёжной команды «Динамо» Москва
+                            p С июня 2020 - физиотерапевт агентства Pro Football
+                    else if dir === "psychologist"
+                        .mb-4
+                            .h6.fw-bold.text-uppercase Образование
+                            p в 1999 г. окончила Красноярский государственный университет, психологическое образование.
+                            p Спортивный психолог, Libre Universite Samadeva (Франция) 2017–2018 гг.
+                        .mb-4
+                            .h6.fw-bold.text-uppercase Карьера
+                            p 1999–2019 гг. Психолог ГУ МВД России по Красноярскому краю
+                            p С 2020 года спортивный психолог, агентства Pro Football
+
+
+mixin platform(title)
+
+    - var url = ""
+
+    if title==="instat"
+        - url="https://instatsport.com/"
+    else if title==="wyscount"
+        - url="https://wyscout.com"
+    else if title==="hudl"
+        - url="https://hudl.com/"
+    else if title==="sportscode"
+        - url="https://sporttech.biz/sportscode"
+
+    .card-platform.d-flex.flex-column.position-relative.p-3.p-sm-4.text-light.overflow-hidden.border-end.border-1(data-aos="fade-up")
+        +img("analytics/card-bg").img-bg
+        +img("analytics/"+title,".png").position-absolute.top-0.end-0.mt-4.me-n5.me-lg-n8.me-xl-n3.me-xxl-0
+        +a(url).h3.text-decoration-underline.fw-bold.text-uppercase.fst-italic.w-min.mb-3= title
+        .row.g-0
+            .col-sm-6
+                .lh-sm.mb-3.pe-lg-0.pe-xl-4: block
+
+
+mixin tariff(...mods)
+    .position-relative.p-4.text-light(data-aos="fade-up")
+        +img("medical/card-bg").img-bg
+        .mb-4.pb-2
+            .h3.text-uppercase.fw-bold.fst-italic: block
+            p= mods[0]
+        .mb-4.pb-2
+            .h6.text-uppercase.fw-bold Страховая сумма
+            p= mods[1]
+        .mb-4.pb-2
+            .h6.text-uppercase.fw-bold Вид страхования
+            p= mods[2]
+        .mb-4.pb-2
+            .h6.text-uppercase.fw-bold Территория покрытия
+            p= mods[3]
+        .mb-4.pb-2
+            .h6.text-uppercase.fw-bold Возраст
+            p= mods[4]
+        .mb-0.pb-0
+            .h6.text-uppercase.fw-bold Стоимость
+            p= mods[5]
+
+
+mixin sport-base(title)
+    .card-base.d-flex.flex-column.position-relative.p-4.text-light.border-end.border-1(data-aos="fade-up")
+        +img("/sport-bases/"+title).img-bg
+        .row
+            .col
+                .h3.lh-sm.fw-bold.text-uppercase.fst-italic.w-50.mb-3= title
+            .col-auto
+                +img("logo/"+title,".svg")(width=80)
+
+        .dropdown-click-wrapper.mt-auto.me-auto
+            .h2.dropdown-click-toggle.d-inline-flex.text-secondary-light: +fi("angle-circle-down").m-auto
+            .dropdown-click-menu.position-absolute.top-100.start-0.w-100.bg-primary.p-4
+                if block
+                    block
+                else
+                    .mb-4
+                        .h6.fw-bold.text-uppercase Школа
+                        p King’s College International, Мадрид
+                    .mb-4.tex-cols-sm-2
+                        .h6.fw-bold.text-uppercase Возраст
+                        p от 9 до 16 лет
+                    .mb-4
+                        .h6.fw-bold.text-uppercase Интенсивность занятий
+                        p 10 уроков английского языка (по 50 мин)<br>12 тренировок по футболу (по 60 мин)
+                    .mb-4
+                        .h6.fw-bold.text-uppercase Даты
+                        p 01 - 30 июля 2021 (2-4 недели)
+                    .mb-4
+                        .h6.fw-bold.text-uppercase Стоимость
+                        p 2 недели - 234 828, 75 рублей
+
+
+mixin meeting-base(title)
+    .card-base.d-flex.flex-column.position-relative.p-4.text-light.border-end.border-1(data-aos="fade-up")
+        +img("/meetings-bases/"+title).img-bg
+        .row.g-0
+            .col-sm-6
+                .h3.lh-sm.fw-bold.text-uppercase.fst-italic.mb-3= title
+
+        .dropdown-click-wrapper.mt-auto.me-auto
+            .h2.dropdown-click-toggle.d-inline-flex.text-secondary-light: +fi("angle-circle-down").m-auto
+            .dropdown-click-menu.position-absolute.top-100.start-0.w-100.bg-primary.p-4
+                if block
+                    block
+                else
+                    .mb-4
+                        .h6.fw-bold.text-uppercase Расположение
+                        p Кранево, Болгария
+                    .mb-4.tex-cols-sm-2
+                        .h6.fw-bold.text-uppercase Сезонность
+                        p Круглый год
+                    .mb-4
+                        .h6.fw-bold.text-uppercase Спортивная инфраструктура
+                        ul
+                            li Спортивный зал
+                            li Открытый подогреваемый бассейн
+                            li Открытая площадка для футбола
+                            li Тренажёрный зал
+                    .mb-4.tex-cols-sm-2
+                        .h6.fw-bold.text-uppercase Стоимость
+                        p От 41 € / сутки
+
+
+mixin focus(href,title,img)
+    +a(href).card-focus.d-flex.position-relative.flex-column.text-decoration-none.h-100(data-aos="fade-up")
+        +img("focus/"+img,".png").position-absolute.bottom-0.start-0.farther
+        .small.fw-bold.fst-italic.text-uppercase.mt-auto.pe-1.pe-sm-4.ps-3.ps-sm-4.pb-2.pb-sm-3!= title
+
+
+mixin modal(title, size)
+    .modal.fade(id="modal-" + title)
+        .modal-dialog.modal-dialog-centered(class="modal-"+size)
+
+            if title === "callback"
+                .modal-content.bg-primary-light.text-light.px-5.py-4
+                    +btn("link","close","close-white","sm")(data-bs-dismiss="modal").position-absolute.top-0.end-0.text-light.m-2
+                    form.text-center
+                        .fw-semibold.mb-4 Наш менеджер свяжется с вами
+                        +input(":Ваше имя").mb-3
+                        +input("phone",":Номер телефона").mb-3
+                        +input(":E-mail").mb-3
+                        +textarea(":Ваше сообщение").mb-3
+                        +check("checked","#form-checkbox").small.mb-3.text-start Я принимаю условия соглашения об обработке персональных данных
+                        +btn("secondary-light").rounded-pill Отправить
+
+            else if title === "video"
+                .modal-content.bg-primary-light.text-light.p-0
+                    +btn("link","close","close-white","sm")(data-bs-dismiss="modal").position-absolute.top-0.end-0.text-light.mt-n4
+                    .ratio-16x9.ratio-16x9
+                        video(controls).d-block.w-100.rounded
+                            source(src="images/video.mp4" type="video/mp4")
+                            source(src="images/video.webm" type="video/webm")
+
+            else if title === "politic"
+                .modal-content.bg-primary-light.text-light.px-5.py-4
+                    +btn("link","close","close-white","sm")(data-bs-dismiss="modal").position-absolute.top-0.end-0.text-light.m-2
+                    .h2 Политика конфиденциальности
+                    p Разнообразный и богатый опыт укрепление и развитие структуры требуют от нас анализа соответствующий условий активизации. Равным образом постоянный количественный рост и сфера нашей активности требуют определения и уточнения систем массового участия. Разнообразный и богатый опыт реализация намеченных плановых заданий требуют от нас анализа направлений прогрессивного развития. С другой стороны укрепление и развитие структуры играет важную роль в формировании существенных финансовых и административных условий. Не следует, однако забывать, что рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании форм развития.
+                    p Таким образом дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке существенных финансовых и административных условий. С другой стороны укрепление и развитие структуры играет важную роль в формировании модели развития. Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения модели развития. Повседневная практика показывает, что сложившаяся структура организации влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.
+
+            else if title === "agreement"
+                .modal-content.bg-primary-light.text-light.px-5.py-4
+                    +btn("link","close","close-white","sm")(data-bs-dismiss="modal").position-absolute.top-0.end-0.text-light.m-2
+                    .h2 Пользовательское соглашение
+                    p Разнообразный и богатый опыт укрепление и развитие структуры требуют от нас анализа соответствующий условий активизации. Равным образом постоянный количественный рост и сфера нашей активности требуют определения и уточнения систем массового участия. Разнообразный и богатый опыт реализация намеченных плановых заданий требуют от нас анализа направлений прогрессивного развития. С другой стороны укрепление и развитие структуры играет важную роль в формировании существенных финансовых и административных условий. Не следует, однако забывать, что рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании форм развития.
+                    p Таким образом дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке существенных финансовых и административных условий. С другой стороны укрепление и развитие структуры играет важную роль в формировании модели развития. Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения модели развития. Повседневная практика показывает, что сложившаяся структура организации влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.

@@ -1,0 +1,101 @@
+.card-new-post
+  width: 430px
+  height: 430px
+.card-new-video
+  width: 800px
+  height: 430px
+
++media-breakpoint-down(xl)
+  .card-new-post
+    width: 400px
+    height: 400px
+  .card-new-video
+    width: 600px
+    height: 400px
+
++media-breakpoint-down(lg)
+  .card-new-post
+    width: 350px
+    height: 350px
+  .card-new-video
+    width: 400px
+    height: 350px
+
++media-breakpoint-down(md)
+  .card-new-post
+    width: 300px
+    height: 300px
+  .card-new-video
+    width: 300px
+    height: 300px
+
++media-breakpoint-down(sm)
+  .card-new-post, .card-new-video
+    width: 100%
+
+.card-client, .card-specialist, .card-base, .card-platform
+  height: 480px
+  +media-breakpoint-down(lg)
+    height: 400px
+  > .position-absolute
+    height: 550px
+    +media-breakpoint-down(xxl)
+      height: 500px
+    +media-breakpoint-down(xl)
+      height: 450px
+    +media-breakpoint-down(lg)
+      height: 450px
+    +media-breakpoint-down(md)
+      height: 400px
+    +media-breakpoint-down(sm)
+      height: 300px
+
++media-breakpoint-down(sm)
+  .card-client,.card-base
+    height: 300px
+    > .position-absolute img
+      position: relative
+      right: -50px
+
++media-breakpoint-down(sm)
+  .card-specialist
+    height: 300px
+    > .position-absolute img
+      position: relative
+      right: -20px
+
+
+.card-platform img.position-absolute
+  height: auto
+  width: auto
+  +media-breakpoint-down(sm)
+    width: 250px
+    top: 60% !important
+    bottom: 0 !important
+
+.partner-logo
+  height: 60px
+  +media-breakpoint-down(md)
+    height: 40px
+
+
+footer img.position-absolute
+  +media-breakpoint-down(sm)
+    left: 50%
+    transform: translate(-50%, -50%) !important
+
+
+.focus-slide
+  height: 520px
+  width: 350px
+  +media-breakpoint-down(lg)
+    width: 250px
+    height: 350px
+    .card-focus img
+      width: 320px
+
+  +media-breakpoint-down(sm)
+    width: 210px
+    height: 280px
+    .card-focus img
+      width: 270px

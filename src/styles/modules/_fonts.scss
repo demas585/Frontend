@@ -1,0 +1,61 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+
+// Fonts
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Light", 300, normal, ttf eot woff);
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Light-Italic", 300, italic, ttf eot woff);
+
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Regular", 400, normal, ttf eot woff);
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Regular-Italic", 400, italic, ttf eot woff);
+
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Semibold", 600, normal, ttf eot woff);
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Semibold-Italic", 600, italic, ttf eot woff);
+
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Bold", 700, normal, ttf eot woff);
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Bold-Italic", 700, italic, ttf eot woff);
+
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Extrabold", 800, normal, ttf eot woff);
+@include font-face(ProximaNova, "../fonts/ProximaNova/ProximaNova-Extrabold-Italic", 800, italic, ttf eot woff);
